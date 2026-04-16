@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>観戦ガイド｜三重ホンダヒート vs リコーブラックラムズ東京｜2026年4月17日</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a33;
+      --panel-2: #182447;
+      --text: #f5f7fb;
+      --sub: #c7d0e4;
+      --line: rgba(255,255,255,0.12);
+      --heat: #e53935;
+      --rams: #111111;
+      --gold: #ffd166;
+      --mint: #6ee7c8;
+      --shadow: 0 12px 36px rgba(0,0,0,.25);
+      --radius: 20px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(229,57,53,.18), transparent 22%),
+        radial-gradient(circle at left center, rgba(255,209,102,.12), transparent 20%),
+        linear-gradient(180deg, #09101e 0%, #0b1020 100%);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    .hero {
+      padding: 56px 0 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, rgba(229,57,53,.2), rgba(255,255,255,.03) 45%, rgba(17,17,17,.35));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: .05em;
+      background: rgba(255,255,255,.04);
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 4vw, 56px);
+      line-height: 1.1;
+      margin: 18px 0 12px;
+      letter-spacing: -.02em;
+    }
+
+    .hero p.lead {
+      color: var(--sub);
+      font-size: clamp(15px, 2vw, 19px);
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .hero-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 18px;
+    }
+
+    .mini, .panel {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .meta-item {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .meta-item strong {
+      display: block;
+      font-size: 12px;
+      color: var(--gold);
+      margin-bottom: 6px;
+      letter-spacing: .06em;
+    }
+
+    .vs {
+      display: flex;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .team {
+      flex: 1;
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .team.heat { background: linear-gradient(180deg, rgba(229,57,53,.24), rgba(229,57,53,.08)); }
+    .team.rams { background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(17,17,17,.16)); }
+
+    .team .label { font-size: 12px; color: rgba(255,255,255,.78); letter-spacing: .08em; }
+    .team h2 { margin: 10px 0 6px; font-size: clamp(22px, 3vw, 34px); line-height: 1.15; }
+    .team p { margin: 0; color: var(--sub); }
+
+    .scoreline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gold);
+      min-width: 68px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(11,16,32,.75);
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    nav .nav-inner {
+      width: min(var(--max), calc(100% - 24px));
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px 0;
+      scrollbar-width: none;
+    }
+    nav .nav-inner::-webkit-scrollbar { display: none; }
+    nav a {
+      white-space: nowrap;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    section { padding: 36px 0; }
+    .section-title {
+      font-size: clamp(24px, 3vw, 36px);
+      margin: 0 0 10px;
+      line-height: 1.2;
+    }
+    .section-lead {
+      margin: 0 0 22px;
+      color: var(--sub);
+      max-width: 820px;
+    }
+
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 18px;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--sub);
+      background: rgba(255,255,255,.04);
+    }
+
+    .checklist, .simple-list { margin: 0; padding-left: 1.2em; }
+    .checklist li, .simple-list li { margin: 8px 0; }
+
+    .rule-box {
+      border-left: 4px solid var(--gold);
+      padding: 16px 16px 16px 18px;
+      background: rgba(255,209,102,.08);
+      border-radius: 0 16px 16px 0;
+    }
+
+    .team-block {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rank {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      background: rgba(255,255,255,.08);
+      color: var(--gold);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .highlight {
+      border: 1px solid rgba(110,231,200,.24);
+      background: linear-gradient(180deg, rgba(110,231,200,.10), rgba(255,255,255,.03));
+    }
+
+    .player {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .player:first-of-type { border-top: 0; padding-top: 0; }
+
+    .player-no {
+      flex: 0 0 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .cta {
+      background: linear-gradient(135deg, rgba(229,57,53,.18), rgba(255,209,102,.12));
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .footer {
+      padding: 22px 0 48px;
+      color: #aeb8d0;
+      font-size: 13px;
+    }
+
+    .small { font-size: 14px; color: var(--sub); }
+    .accent { color: var(--gold); }
+    .mint { color: var(--mint); }
+
+    @media (max-width: 960px) {
+      .hero-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .vs { flex-direction: column; }
+      .scoreline { min-height: 42px; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 28px; }
+      .hero-card { padding: 20px; border-radius: 22px; }
+      .meta-grid { grid-template-columns: 1fr; }
+      .card, .mini, .panel, .cta { padding: 18px; }
+      section { padding: 28px 0; }
+      body { line-height: 1.65; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="eyebrow">はじめてでも楽しめる ラグビー観戦ガイド</div>
+        <h1>三重ホンダヒート vs リコーブラックラムズ東京</h1>
+        <p class="lead">4月17日（金）のナイトゲームを、<strong>「ルールが全部わからなくても楽しい」</strong>体験に変えるためのガイドです。勝敗だけでなく、ぶつかる音、流れの変化、会場の一体感まで楽しめる見方をまとめました。</p>
+
+        <div class="hero-grid">
+          <div class="panel">
+            <div class="vs">
+              <div class="team heat">
+                <div>
+                  <div class="label">HOST</div>
+                  <h2>三重ホンダヒート</h2>
+                  <p>前に出る圧力と粘り強い守備。勢いに乗ると一気に会場を熱くするチーム。</p>
+                </div>
+              </div>
+              <div class="scoreline">VS</div>
+              <div class="team rams">
+                <div>
+                  <div class="label">VISITOR</div>
+                  <h2>リコーブラックラムズ東京</h2>
+                  <p>判断の速さとゲームメイクが魅力。接戦で強さを見せる都会派の勝負師。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="mini">
+            <div class="meta-grid">
+              <div class="meta-item">
+                <strong>日時</strong>
+                2026年4月17日（金）<br>19:00 キックオフ
+              </div>
+              <div class="meta-item">
+                <strong>会場</strong>
+                秩父宮ラグビー場<br>（東京都港区）
+              </div>
+              <div class="meta-item">
+                <strong>観戦のコツ</strong>
+                まずは「大きなぶつかり合い」と「キックの使い方」に注目
+              </div>
+              <div class="meta-item">
+                <strong>ひとこと</strong>
+                今日は“わかる”より<br>“感じる”でOK
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#appeal">ラグビーの魅力</a>
+      <a href="#rules">これだけルール</a>
+      <a href="#positions">ポジション</a>
+      <a href="#teams">両チームの特徴</a>
+      <a href="#matchup">今日の見どころ</a>
+      <a href="#players">注目選手</a>
+      <a href="#bonus">2026年の注目試合</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="appeal">
+      <div class="wrap">
+        <h2 class="section-title">ラグビーの魅力は、<span class="accent">“攻守が一瞬で切り替わるドラマ”</span></h2>
+        <p class="section-lead">初心者におすすめなのは、細かい反則を全部覚えようとしないこと。まずは「勢い」「音」「会場のどよめき」を楽しむだけで十分です。</p>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>1. ぶつかり合いの迫力</h3>
+            <p>テレビでも伝わりますが、会場ではコンタクトの音と衝撃が別物。FWの近距離戦は、ラグビー観戦ならではの体験です。</p>
+          </article>
+          <article class="card">
+            <h3>2. キックで一気に景色が変わる</h3>
+            <p>ただ前に運ぶだけでなく、キックで陣地を取り、追い込み、流れを変える。サッカーや野球とは違う“陣取りゲーム感”が面白さです。</p>
+          </article>
+          <article class="card">
+            <h3>3. 一体感が生まれやすい</h3>
+            <p>トライ前の盛り上がり、ゴール成功の拍手、守り切った瞬間の歓声。ルールを完璧に知らなくても、熱狂の波に乗れます。</p>
+          </article>
+        </div>
+
+        <div class="card" style="margin-top:18px;">
+          <h3>ライト層向けの楽しみ方 3ステップ</h3>
+          <ol class="simple-list">
+            <li><strong>前半20分</strong>は「どっちが前に出ているか」だけ見る</li>
+            <li><strong>キック</strong>が増えたら「陣地の取り合い」だと思えばOK</li>
+            <li><strong>後半の最後10分</strong>は、点差と会場の空気の変化に注目</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="rules">
+      <div class="wrap">
+        <h2 class="section-title">ルールは<span class="accent">これだけわかればOK</span></h2>
+        <p class="section-lead">全部覚えなくて大丈夫。観戦中によく出てくる要素だけを先に押さえると、一気に見やすくなります。</p>
+
+        <div class="grid-2">
+          <article class="card highlight">
+            <h3>まず覚える4つ</h3>
+            <ul class="checklist">
+              <li><strong>得点</strong>：トライ5点、コンバージョン2点、ペナルティゴール3点</li>
+              <li><strong>前にパスはNG</strong>：ボールは後ろへつなぐ。前進はランかキックで行う</li>
+              <li><strong>倒されたら終わりではない</strong>：すぐ攻守が続く。ここがラグビーの面白さ</li>
+              <li><strong>反則後は流れが変わりやすい</strong>：PGを狙うか、ラインアウトで攻めるかに注目</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>観戦中によく聞く言葉</h3>
+            <div class="rule-box">
+              <p><strong>スクラム</strong>：反則などの後にFWが組み合って再開するセットプレー</p>
+              <p><strong>ラインアウト</strong>：タッチラインの外に出た後、横から投げ入れて再開</p>
+              <p><strong>ラック</strong>：倒れた選手の上でボールを奪い合う場面</p>
+              <p><strong>アドバンテージ</strong>：反則されても攻めが続けられるならプレー継続</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="positions">
+      <div class="wrap">
+        <h2 class="section-title">ポジションの特徴</h2>
+        <p class="section-lead">15人それぞれ役割がありますが、初心者はまず <strong>FW（1〜8）</strong> と <strong>BK（9〜15）</strong> の違いがわかれば十分です。</p>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>FW（フォワード）</h3>
+            <p>体を張る接点とセットプレーの主役。押し込み、奪い、近場を突破する“土台づくり”担当です。</p>
+            <div class="badge-row">
+              <span class="badge">1〜3番 プロップ / フッカー</span>
+              <span class="badge">4〜5番 ロック</span>
+              <span class="badge">6〜8番 バックロー</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>BK（バックス）</h3>
+            <p>テンポ、展開、スピードの主役。パス、ラン、キックで外へ広げ、仕留める役割を担います。</p>
+            <div class="badge-row">
+              <span class="badge">9番 スクラムハーフ</span>
+              <span class="badge">10番 スタンドオフ</span>
+              <span class="badge">11〜14番 CTB / WTB</span>
+              <span class="badge">15番 FB</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid-3" style="margin-top:18px;">
+          <article class="card">
+            <h3>9番・10番を見ると試合がわかる</h3>
+            <p>9番はテンポメーカー、10番は司令塔。どこへ攻めるかを決めるので、初心者はまずこの2人を追うと見やすいです。</p>
+          </article>
+          <article class="card">
+            <h3>8番は“強さ”の象徴</h3>
+            <p>重くて強くて動ける選手が多く、接点でもボールキャリーでも目立ちます。豪快さを感じたいなら8番注目。</p>
+          </article>
+          <article class="card">
+            <h3>15番は最後の砦</h3>
+            <p>キック処理、カウンター、守備の整理役。派手すぎないけれど、試合の安心感を作る重要ポジションです。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="teams">
+      <div class="wrap">
+        <h2 class="section-title">両チームの特徴と現在地</h2>
+        <p class="section-lead">順位だけでなく、どういう戦い方をするチームなのかを知ると、観戦がぐっと面白くなります。</p>
+
+        <div class="grid-2">
+          <article class="card team-block">
+            <span class="rank">三重ホンダヒート｜D1 8位</span>
+            <h3>三重ホンダヒート</h3>
+            <p>勢いに乗ったときの爆発力が魅力。接点で圧力をかけ、チャンスで一気に得点へつなげるタイプです。直近では東京サントリーサンゴリアスに勝利し、守備の粘りも光りました。</p>
+            <ul class="simple-list">
+              <li><strong>見たいポイント</strong>：前半の入り、接点の圧、モメンタムをつかんだ時の連続攻撃</li>
+              <li><strong>観戦キーワード</strong>：フィジカル、勢い、守り切る執念</li>
+            </ul>
+          </article>
+
+          <article class="card team-block">
+            <span class="rank">リコーブラックラムズ東京｜D1 5位</span>
+            <h3>リコーブラックラムズ東京</h3>
+            <p>ゲームコントロールのうまさと勝負どころでの冷静さが持ち味。順位でもヒートを上回り、プレーオフ圏を意識できる位置で戦っています。</p>
+            <ul class="simple-list">
+              <li><strong>見たいポイント</strong>：9番起点のテンポ、判断の速さ、接戦での試合運び</li>
+              <li><strong>観戦キーワード</strong>：司令塔、試合巧者、勝負強さ</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="matchup">
+      <div class="wrap">
+        <h2 class="section-title">今日の試合の見どころ</h2>
+        <p class="section-lead">この試合は、<strong>ホンダヒートの勢い</strong>と、<strong>ブラックラムズの試合運び</strong>のぶつかり合いとして見るとわかりやすいです。</p>
+
+        <div class="grid-3">
+          <article class="card highlight">
+            <h3>見どころ 1｜序盤に主導権を取るのはどっち？</h3>
+            <p>ヒートは直近の好ゲームでも立ち上がりに先手を取って流れをつかみました。前半20分の圧力は、会場の温度を一気に上げる要素です。</p>
+          </article>
+          <article class="card highlight">
+            <h3>見どころ 2｜9番対決でテンポが変わる</h3>
+            <p>ブラックラムズのTJ・ペレナラは、試合全体のリズムを動かせる存在。対するヒートがプレッシャーをかけられるかが大きな焦点です。</p>
+          </article>
+          <article class="card highlight">
+            <h3>見どころ 3｜終盤は“1プレーで空気が変わる”</h3>
+            <p>順位差はあるものの、ヒートは粘り強さがあり、ブラックラムズは接戦力がある。終盤まで競る展開なら、初心者にも最も面白い試合になりやすいです。</p>
+          </article>
+        </div>
+
+        <div class="card" style="margin-top:18px;">
+          <h3>会場でのおすすめ視点</h3>
+          <ul class="checklist">
+            <li><strong>前半</strong>：スクラムやラックで押せているのはどちらか</li>
+            <li><strong>中盤</strong>：キックで敵陣に入れているのはどちらか</li>
+            <li><strong>終盤</strong>：ベンチから入る選手で流れが変わるか</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="players">
+      <div class="wrap">
+        <h2 class="section-title">注目選手</h2>
+        <p class="section-lead">スター性があって、初心者にも「わかりやすく目立つ」選手を中心にピックアップしました。</p>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>三重ホンダヒート</h3>
+            <div class="player">
+              <div class="player-no">2</div>
+              <div>
+                <strong>テビタ・イカニヴェレ</strong><br>
+                接点の強さとトライへの嗅覚が魅力。FWが前に出る場面で存在感が出ると、ヒートらしい熱い展開になります。
+              </div>
+            </div>
+            <div class="player">
+              <div class="player-no">8</div>
+              <div>
+                <strong>パブロ・マテーラ</strong><br>
+                世界トップクラスの経験を持つバックロー。接点、運動量、勝負どころの反応速度に注目です。
+              </div>
+            </div>
+            <div class="player">
+              <div class="player-no">15</div>
+              <div>
+                <strong>レメキ ロマノラヴァ</strong><br>
+                キック処理とカウンターで会場を沸かせる存在。直近の勝利でも大きな働きを見せました。
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>リコーブラックラムズ東京</h3>
+            <div class="player">
+              <div class="player-no">9</div>
+              <div>
+                <strong>TJ・ペレナラ</strong><br>
+                世界的SH。テンポを上げる、落ち着かせる、相手を揺さぶる。初心者でも“この人が試合を動かしている”と感じやすい選手です。
+              </div>
+            </div>
+            <div class="player">
+              <div class="player-no">12</div>
+              <div>
+                <strong>ラメカ・ポイヒピ</strong><br>
+                真ん中の攻防で強さを出せるランナー。接点を突破した瞬間に一気に景色を変えるタイプです。
+              </div>
+            </div>
+            <div class="player">
+              <div class="player-no">15</div>
+              <div>
+                <strong>アイザック・ルーカス</strong><br>
+                キック、ゲーム整理、フィニッシュ参加までこなせる万能型。ブラックラムズの安定感を支える存在です。
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="cta">
+          <h2 class="section-title" style="margin-top:0;">今日の観戦ミッション</h2>
+          <p class="section-lead" style="margin-bottom:12px;">全部わからなくてOK。次の3つが見つけられたら、もう十分にラグビーを楽しめています。</p>
+          <ol class="simple-list">
+            <li><strong>一番会場が沸いたプレー</strong>は何だったか</li>
+            <li><strong>「この選手、気になる」</strong>と思えた選手が1人いたか</li>
+            <li><strong>また来たい</strong>と思える瞬間が1回でもあったか</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="bonus">
+      <div class="wrap">
+        <h2 class="section-title">おまけ｜2026年に日本国内で予定されている注目試合</h2>
+        <p class="section-lead">リーグワンだけで終わらせず、次の観戦先までイメージできると“また観たい”につながります。</p>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>リーグワン 2025-26 プレーオフ</h3>
+            <p>5月下旬から6月上旬に準々決勝、準決勝、3位決定戦／決勝が予定されています。シーズンの熱量が最も高まる時期で、初観戦でも盛り上がりやすい舞台です。</p>
+          </article>
+          <article class="card">
+            <h3>男子日本代表 国内開催試合</h3>
+            <p>日本ラグビー協会は、2026年8月までに国内で開催する男子日本代表戦の日程を発表しています。代表戦はクラブ戦とは違う特別な空気があり、次の観戦候補におすすめです。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>※このガイドは、「観戦体験を楽しむ」ことを目的として構成しています。最新の試合情報・メンバー・配信・会場案内は公式情報もあわせてご確認ください。</p>
+    </div>
+  </footer>
+</body>
+</html>
